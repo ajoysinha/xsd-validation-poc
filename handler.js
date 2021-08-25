@@ -1,40 +1,29 @@
 'use strict';
 
-var validator = require('xsd-schema-validator');
+const Libxml = require('node-libxml');
+let libxml = new Libxml();
 
 module.exports.hello = async (event, context) => {
 
+  let statuscode, message;
   const data = event.body
-  //console.log(" Event Body is "+data)
-  var statusCode, message, flag;
+  let xmlIsWellformedStr = libxml.loadXmlFromString(data);
+  libxml.loadSchemas(['sample.xsd']);
+  let xmlIsValid = libxml.validateAgainstSchemas();
 
-  const validateXML = (data) => {
-
-    return new Promise((resolve, reject) => {
-
-      validator.validateXML(data, 'sample.xsd', function (err, result) {
-
-        if (err) {
-
-          resolve({
-            statusCode: 200,
-            body: JSON.stringify({
-              status: 'FAIL',
-            }),
-          });
-
-        } else {
-
-          resolve({
-            statusCode: 200,
-            body: JSON.stringify({
-              status: 'OK',
-            }),
-          });
-        }
-      })
-    });
+  if (xmlIsValid) {
+    statuscode = '200'
+    message = 'OK'
+  } else {
+    statuscode = '200'
+    message = 'FALSE'
   }
 
-  return await validateXML(event.body);
+  let response = {
+    statusCode: statuscode,
+    body: JSON.stringify(message)
+    };
+    console.log("response: " + JSON.stringify(response))
+    return response;
+ 
 };

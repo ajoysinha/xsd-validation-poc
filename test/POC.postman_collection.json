@@ -1,0 +1,31 @@
+{
+	"variables": [],
+	"info": {
+		"name": "POC",
+		"_postman_id": "de5bb9c7-dbdf-a258-fc99-49fb6ec96e61",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/dev/xsdpoc",
+			"request": {
+				"url": "http://localhost:3000/dev/xsdpoc",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<Customers>\n\t<Customer>\n\t\t<Number>1</Number>\n\t\t<FirstName>Fred</FirstName>\n\t\t<LastName>Landis</LastName>\n\t\t<Address>\n\t\t\t<Street>Oakstreet</Street>\n\t\t\t<City>Boston</City>\n\t\t\t<ZIP>23320</ZIP>\n\t\t\t<State>MA</State>\n\t\t</Address>\n\t</Customer>\n\t<Customer>\n\t\t<Number>2</Number>\n\t\t<FirstName>Michelle</FirstName>\n\t\t<LastName>Butler</LastName>\n\t\t<Address>\n\t\t\t<Street>First Avenue</Street>\n\t\t\t<City>San-Francisco</City>\n\t\t\t<ZIP>44324</ZIP>\n\t\t\t<State>CA</State>\n\t\t</Address>\n\t</Customer>\n\t<Customer>\n\t\t<Number>3</Number>\n\t\t<FirstName>Ted</FirstName>\n\t\t<LastName>Little</LastName>\n\t\t<Address>\n\t\t\t<Street>Long Way</Street>\n\t\t\t<City>Los-Angeles</City>\n\t\t\t<ZIP>34424</ZIP>\n\t\t\t<State>CA</State>\n\t\t</Address>\n\t</Customer>\n</Customers>"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
