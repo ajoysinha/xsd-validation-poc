@@ -1,0 +1,17 @@
+{
+  "name": "xsd-validation-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xsd-schema-validator": "^0.7.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^8.0.0"
+  }
+}
